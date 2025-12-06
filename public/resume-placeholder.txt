@@ -1,0 +1,7 @@
+This is a placeholder for your resume PDF file.
+
+To add your resume:
+1. Place your resume PDF file in the public folder
+2. Rename it to "resume.pdf" (or update the href in src/sections/Hero.jsx)
+3. The download button will automatically work
+
