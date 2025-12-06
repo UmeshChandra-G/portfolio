@@ -32,7 +32,7 @@ const Projects = () => {
               {/* Glow effect on hover */}
               <div className="absolute -inset-1 bg-gradient-to-r from-primary-500 to-accent-500 rounded-3xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500" />
               
-              <div className="relative premium-card h-full flex flex-col">
+              <div className="relative premium-card h-full flex flex-col justify-between">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex-1">
@@ -60,7 +60,7 @@ const Projects = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed flex-1">
+                <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
                   {project.description}
                 </p>
 
@@ -115,7 +115,7 @@ const Projects = () => {
                 )}
 
                 {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className={`flex flex-wrap gap-2 ${project.link ? 'mb-6' : 'mb-0'}`}>
                   {project.technologies.map((tech, idx) => (
                     <motion.span
                       key={idx}

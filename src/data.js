@@ -74,6 +74,7 @@ export const projects = [
       "Light turns ON automatically during dark surroundings",
       "Turns OFF when surroundings become bright",
       "Energy-efficient automated control",
+      "Reduces manual intervention and maintenance costs",
     ],
     technologies: ["Embedded Systems", "IoT", "Arduino"],
   },
