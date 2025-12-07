@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Download } from 'lucide-react';
 
 const Button = ({ children, variant = 'primary', icon, onClick, href, download, className = '' }) => {
-  const baseClasses = 'inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden';
+  const baseClasses = 'inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-lg sm:rounded-xl font-semibold transition-all duration-300 relative overflow-hidden text-sm sm:text-base';
   
   const variants = {
     primary: 'premium-button text-white',

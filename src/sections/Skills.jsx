@@ -38,14 +38,14 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden">
+    <section id="skills" className="py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary-50/20 to-transparent dark:via-primary-950/10 -z-10" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionTitle title="Technical Skills" subtitle="Mastering the Craft" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mt-8 sm:mt-12 md:mt-16">
           {skillCategories.map((category, index) => {
             const Icon = category.icon;
             return (
@@ -67,19 +67,19 @@ const Skills = () => {
                 <div className={`absolute -inset-1 bg-gradient-to-br ${category.gradient} rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`} />
                 
                 <div className="relative premium-card h-full">
-                  <div className="flex items-center gap-4 mb-6">
+                  <div className="flex items-center gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-5 md:mb-6">
                     <motion.div
                       whileHover={{ rotate: 360, scale: 1.1 }}
                       transition={{ duration: 0.6 }}
-                      className={`p-4 bg-gradient-to-br ${category.gradient} rounded-xl shadow-lg`}
+                      className={`p-2.5 sm:p-3 md:p-4 bg-gradient-to-br ${category.gradient} rounded-lg sm:rounded-xl shadow-lg flex-shrink-0`}
                     >
-                      <Icon className="w-7 h-7 text-white" />
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
                     </motion.div>
-                    <h3 className="text-xl font-bold gradient-text-static group-hover:gradient-text transition-all">
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold gradient-text-static group-hover:gradient-text transition-all">
                       {category.title}
                     </h3>
                   </div>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {category.items.map((skill, idx) => (
                       <motion.span
                         key={idx}
@@ -88,7 +88,7 @@ const Skills = () => {
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.1 + idx * 0.05 }}
                         whileHover={{ scale: 1.15, y: -2 }}
-                        className="px-4 py-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-semibold hover:border-primary-500 dark:hover:border-primary-500 hover:shadow-md transition-all"
+                        className="px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 text-gray-700 dark:text-gray-300 rounded-md sm:rounded-lg text-xs sm:text-sm font-semibold hover:border-primary-500 dark:hover:border-primary-500 hover:shadow-md transition-all"
                       >
                         {skill}
                       </motion.span>

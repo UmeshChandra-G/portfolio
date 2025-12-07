@@ -57,14 +57,14 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
+    <section id="contact" className="py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent-50/20 to-transparent dark:via-accent-950/10 -z-10" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionTitle title="Get In Touch" subtitle="Let's Build Something Amazing" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 mt-8 sm:mt-12 md:mt-16">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -74,16 +74,16 @@ const Contact = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-3xl font-bold gradient-text-static mb-4">
+              <h3 className="text-2xl sm:text-3xl font-bold gradient-text-static mb-3 sm:mb-4">
                 Let's Talk
               </h3>
-              <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
                 I'm always open to discussing new opportunities, interesting projects, 
                 or just having a chat about technology. Feel free to reach out!
               </p>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {contactMethods.map((method, index) => {
                 const Icon = method.icon;
                 return (
@@ -99,18 +99,18 @@ const Contact = () => {
                     whileHover={{ scale: 1.05, x: 5, y: -2 }}
                     className="group relative block"
                   >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${method.gradient} rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500`} />
-                    <div className="relative premium-card flex items-center gap-6">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${method.gradient} rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500`} />
+                    <div className="relative premium-card flex items-center gap-3 sm:gap-4 md:gap-6">
                       <motion.div
                         whileHover={{ rotate: 360, scale: 1.1 }}
                         transition={{ duration: 0.6 }}
-                        className={`p-4 bg-gradient-to-br ${method.gradient} rounded-xl shadow-lg flex-shrink-0`}
+                        className={`p-3 sm:p-4 bg-gradient-to-br ${method.gradient} rounded-lg sm:rounded-xl shadow-lg flex-shrink-0`}
                       >
-                        <Icon className="w-6 h-6 text-white" />
+                        <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                       </motion.div>
-                      <div>
-                        <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">{method.label}</p>
-                        <p className="text-gray-900 dark:text-white font-semibold text-lg">{method.value}</p>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-medium">{method.label}</p>
+                        <p className="text-gray-900 dark:text-white font-semibold text-base sm:text-lg truncate">{method.value}</p>
                       </div>
                     </div>
                   </motion.a>
@@ -123,10 +123,10 @@ const Contact = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="flex items-center gap-3 p-4 rounded-xl glass-effect"
+              className="flex items-center gap-2 sm:gap-3 p-3 sm:p-4 rounded-lg sm:rounded-xl glass-effect"
             >
-              <MapPin className="w-6 h-6 text-primary-500" />
-              <span className="text-gray-700 dark:text-gray-300 font-medium">{personalInfo.location}</span>
+              <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-primary-500 flex-shrink-0" />
+              <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300 font-medium">{personalInfo.location}</span>
             </motion.div>
           </motion.div>
 
@@ -140,13 +140,13 @@ const Contact = () => {
           >
             <div className="absolute -inset-1 bg-gradient-to-r from-primary-500 to-accent-500 rounded-3xl opacity-20 blur-xl" />
             <div className="relative premium-card">
-              <div className="flex items-center gap-3 mb-6">
-                <Sparkles className="w-6 h-6 text-primary-500" />
-                <h3 className="text-2xl font-bold gradient-text-static">
+              <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-primary-500" />
+                <h3 className="text-xl sm:text-2xl font-bold gradient-text-static">
                   Send a Message
                 </h3>
               </div>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 md:space-y-6">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -155,7 +155,7 @@ const Contact = () => {
                 >
                   <label
                     htmlFor="name"
-                    className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+                    className="block text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5 sm:mb-2"
                   >
                     Name
                   </label>
@@ -166,7 +166,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300/50 dark:border-gray-600/50 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl border border-gray-300/50 dark:border-gray-600/50 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm text-sm sm:text-base text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                     placeholder="Your Name"
                   />
                 </motion.div>
@@ -178,7 +178,7 @@ const Contact = () => {
                 >
                   <label
                     htmlFor="email"
-                    className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+                    className="block text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5 sm:mb-2"
                   >
                     Email
                   </label>
@@ -189,7 +189,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300/50 dark:border-gray-600/50 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl border border-gray-300/50 dark:border-gray-600/50 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm text-sm sm:text-base text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                     placeholder="your.email@example.com"
                   />
                 </motion.div>
@@ -201,7 +201,7 @@ const Contact = () => {
                 >
                   <label
                     htmlFor="message"
-                    className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+                    className="block text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5 sm:mb-2"
                   >
                     Message
                   </label>
@@ -211,8 +211,8 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows={6}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300/50 dark:border-gray-600/50 bg-white/50 dark:bg-dark-800/50 backdrop-blur-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
+                    rows={5}
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl border border-gray-300/50 dark:border-gray-600/50 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm text-sm sm:text-base text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
                     placeholder="Your message here..."
                   />
                 </motion.div>
@@ -220,9 +220,9 @@ const Contact = () => {
                   type="submit"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full premium-button flex items-center justify-center gap-2"
+                  className="w-full premium-button flex items-center justify-center gap-2 text-sm sm:text-base px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4"
                 >
-                  <Send className="w-5 h-5" />
+                  <Send className="w-4 h-4 sm:w-5 sm:h-5" />
                   Send Message
                 </motion.button>
               </form>

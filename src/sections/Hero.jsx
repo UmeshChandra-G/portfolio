@@ -45,35 +45,35 @@ const Hero = () => {
     >
       <AnimatedBackground />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center"
         >
           {/* Left Side - Content */}
-          <div className="text-left lg:text-left">
+          <div className="text-center lg:text-left">
             {/* Badge */}
             <motion.div 
               variants={itemVariants}
-              className="mb-6 flex justify-start"
+              className="mb-4 sm:mb-6 flex justify-center lg:justify-start"
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-effect-strong"
+                className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full glass-effect-strong"
               >
-                <Sparkles className="w-4 h-4 text-primary-500 animate-pulse-slow" />
-                <span className="text-sm font-medium gradient-text-static">
+                <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-500 animate-pulse-slow" />
+                <span className="text-xs sm:text-sm font-medium gradient-text-static">
                   Available for Opportunities
                 </span>
               </motion.div>
             </motion.div>
 
             {/* Name */}
-            <motion.div variants={itemVariants} className="mb-6">
+            <motion.div variants={itemVariants} className="mb-4 sm:mb-6">
               <motion.h1
-                className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 sm:mb-4 leading-tight"
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ 
@@ -83,7 +83,7 @@ const Hero = () => {
                   delay: 0.3
                 }}
               >
-                <span className="gradient-text block mb-2">
+                <span className="gradient-text block mb-1 sm:mb-2">
                   {personalInfo.name.split(' ')[0]}
                 </span>
                 <span className="gradient-text block">
@@ -93,9 +93,9 @@ const Hero = () => {
             </motion.div>
 
             {/* Title */}
-            <motion.div variants={itemVariants} className="mb-6">
+            <motion.div variants={itemVariants} className="mb-4 sm:mb-6">
               <motion.p 
-                className="text-xl md:text-2xl font-semibold text-gray-700 dark:text-gray-300 mb-2"
+                className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-700 dark:text-gray-300 mb-1 sm:mb-2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
@@ -103,7 +103,7 @@ const Hero = () => {
                 {personalInfo.title}
               </motion.p>
               <motion.p 
-                className="text-base md:text-lg text-gray-500 dark:text-gray-400"
+                className="text-sm sm:text-base md:text-lg text-gray-500 dark:text-gray-400 px-2 sm:px-0"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
@@ -115,7 +115,7 @@ const Hero = () => {
             {/* Social Links */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap gap-4 mb-8"
+              className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 mb-6 sm:mb-8 justify-center lg:justify-start"
             >
               {[
                 { icon: Mail, href: `mailto:${personalInfo.email}`, label: 'Email', color: 'from-blue-500 to-cyan-500' },
@@ -140,11 +140,11 @@ const Hero = () => {
                     <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 rounded-xl"
                       style={{ background: `linear-gradient(135deg, var(--tw-gradient-stops))` }}
                     />
-                    <div className={`relative flex items-center gap-2 px-5 py-3 rounded-xl glass-effect-strong hover:shadow-lg hover:shadow-primary-500/20 transition-all duration-300`}>
-                      <div className={`p-2 bg-gradient-to-br ${social.color} rounded-lg`}>
-                        <Icon className="w-4 h-4 text-white" />
+                    <div className={`relative flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 rounded-xl glass-effect-strong hover:shadow-lg hover:shadow-primary-500/20 transition-all duration-300`}>
+                      <div className={`p-1.5 sm:p-2 bg-gradient-to-br ${social.color} rounded-lg`}>
+                        <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
                       </div>
-                      <span className="text-sm font-medium">{social.label}</span>
+                      <span className="text-xs sm:text-sm font-medium">{social.label}</span>
                     </div>
                   </motion.a>
                 );
@@ -154,29 +154,32 @@ const Hero = () => {
             {/* CTA Buttons */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 justify-center lg:justify-start"
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                className="w-full sm:w-auto"
               >
-                <Button variant="primary" icon="external" onClick={() => setIsResumeModalOpen(true)}>
+                <Button variant="primary" icon="external" onClick={() => setIsResumeModalOpen(true)} className="w-full sm:w-auto text-sm sm:text-base px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4">
                   View Resume
                 </Button>
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                className="w-full sm:w-auto"
               >
-                <Button variant="outline" icon="download" href={resumeUrl} download>
+                <Button variant="outline" icon="download" href={resumeUrl} download className="w-full sm:w-auto text-sm sm:text-base px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4">
                   Download Resume
                 </Button>
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                className="w-full sm:w-auto"
               >
-                <Button variant="outline" onClick={scrollToContact}>
+                <Button variant="outline" onClick={scrollToContact} className="w-full sm:w-auto text-sm sm:text-base px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4">
                   Get In Touch
                 </Button>
               </motion.div>
@@ -186,7 +189,7 @@ const Hero = () => {
           {/* Right Side - Photo */}
           <motion.div
             variants={itemVariants}
-            className="flex justify-center lg:justify-end"
+            className="flex justify-center lg:justify-end mt-8 lg:mt-0"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, type: "spring", stiffness: 100 }}
@@ -196,9 +199,9 @@ const Hero = () => {
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute -inset-8 md:-inset-12 lg:-inset-16"
+                className="absolute -inset-4 sm:-inset-6 md:-inset-8 lg:-inset-12 xl:-inset-16"
               >
-                <div className="w-full h-full rounded-full border-4 border-transparent bg-gradient-to-r from-green-400/30 via-emerald-400/30 to-green-400/30 bg-clip-border" 
+                <div className="w-full h-full rounded-full border-2 sm:border-3 md:border-4 border-transparent bg-gradient-to-r from-green-400/30 via-emerald-400/30 to-green-400/30 bg-clip-border" 
                   style={{ 
                     backgroundImage: 'conic-gradient(from 0deg, transparent, rgba(74, 222, 128, 0.3), transparent, rgba(52, 211, 153, 0.3), transparent)',
                     WebkitMask: 'radial-gradient(circle, transparent 60%, black 60%)',
@@ -208,12 +211,12 @@ const Hero = () => {
               </motion.div>
               
               {/* Outer glow effect */}
-              <div className="absolute -inset-4 md:-inset-6 lg:-inset-8 bg-gradient-to-br from-green-400/30 to-emerald-400/30 rounded-full blur-2xl group-hover:blur-3xl transition-all duration-500" />
+              <div className="absolute -inset-2 sm:-inset-3 md:-inset-4 lg:-inset-6 xl:-inset-8 bg-gradient-to-br from-green-400/30 to-emerald-400/30 rounded-full blur-xl sm:blur-2xl group-hover:blur-3xl transition-all duration-500" />
               
               {/* Photo container - Circular */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="relative w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden shadow-2xl"
+                className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 rounded-full overflow-hidden shadow-2xl"
               >
                 {/* Gradient border */}
                 <div className="absolute inset-0 rounded-full p-1 bg-gradient-to-br from-green-400 via-emerald-400 to-green-400">
@@ -232,7 +235,7 @@ const Hero = () => {
                       />
                       {/* Placeholder - shown if image fails to load */}
                       <div className="w-full h-full bg-gradient-to-br from-green-400 to-emerald-400 flex items-center justify-center hidden">
-                        <span className="text-5xl md:text-6xl lg:text-7xl font-bold text-white">
+                        <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white">
                           {personalInfo.name.split(' ').map(n => n[0]).join('')}
                         </span>
                       </div>
@@ -245,12 +248,12 @@ const Hero = () => {
               <motion.div
                 animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-0 right-0 w-4 h-4 bg-green-400 rounded-full blur-sm"
+                className="absolute top-0 right-0 w-3 h-3 sm:w-4 sm:h-4 bg-green-400 rounded-full blur-sm"
               />
               <motion.div
                 animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-0 left-0 w-4 h-4 bg-emerald-400 rounded-full blur-sm"
+                className="absolute bottom-0 left-0 w-3 h-3 sm:w-4 sm:h-4 bg-emerald-400 rounded-full blur-sm"
               />
             </div>
           </motion.div>
